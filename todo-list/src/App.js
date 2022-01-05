@@ -8,6 +8,8 @@ function App() {
 
   const [inputText, setInputText] = useState("");
   const [todoItems, setTodoItems] = useState([]);
+  const [editMode, setEditMode] = useState(false);
+  const [item_to_edit_id, setItemToEdit] = useState(0);
   const [id, setId] = useState(1);
 
   return (
@@ -21,9 +23,18 @@ function App() {
         inputText={inputText}
         setInputText={setInputText} 
         todoItems={todoItems}
-        setTodoItems={setTodoItems} 
+        setTodoItems={setTodoItems}
+        editMode={editMode}
+        setEditMode={setEditMode}
+        item_to_edit_id={item_to_edit_id}
+        setItemToEdit={setItemToEdit}
       />
-      <List todoItems={todoItems} setTodoItems={setTodoItems}/>
+      <List 
+        todoItems={todoItems} 
+        setTodoItems={setTodoItems} 
+        item_to_edit_id={item_to_edit_id} 
+        setItemToEdit={setItemToEdit} 
+        setEditMode={setEditMode}/>
     </div>
   );
 }

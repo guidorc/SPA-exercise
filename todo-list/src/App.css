@@ -103,6 +103,10 @@ form button:hover {
   opacity: 0.5;
 }
 
+.editMode {
+  color: red;
+}
+
 /*CUSTOM SELECTOR */
 select {
   -webkit-appearance: none;
