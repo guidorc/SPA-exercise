@@ -1,15 +1,15 @@
 import React, {useState} from "react";
 import './App.css';
 
-import Bar from './components/Bar';
-import List from './components/List';
+import FolderBar from './components/FolderBar';
+import FolderList from './components/FolderList';
+//import Bar from './components/Bar';
+//import List from './components/List';
 
 function App() {
 
-  const [inputText, setInputText] = useState("");
-  const [todoItems, setTodoItems] = useState([]);
-  const [editMode, setEditMode] = useState(false);
-  const [item_to_edit_id, setItemToEdit] = useState(0);
+  const [folders, setFolders] = useState([]);
+  const [folderInputText, setFolderInputText] = useState("");
   const [id, setId] = useState(1);
 
   return (
@@ -17,24 +17,19 @@ function App() {
       <header>
         <h1>To-Do List</h1>
       </header>
-      <Bar 
+      <FolderBar
         id={id} 
-        setId={setId} 
-        inputText={inputText}
-        setInputText={setInputText} 
-        todoItems={todoItems}
-        setTodoItems={setTodoItems}
-        editMode={editMode}
-        setEditMode={setEditMode}
-        item_to_edit_id={item_to_edit_id}
-        setItemToEdit={setItemToEdit}
+        setId={setId}
+        folders={folders}
+        setFolders={setFolders}
+        inputText={folderInputText}
+        setInputText={setFolderInputText}/>
+      <FolderList 
+        folders={folders}
+        setFolders={setFolders}
+        id={id}
+        setId={setId}
       />
-      <List 
-        todoItems={todoItems} 
-        setTodoItems={setTodoItems} 
-        item_to_edit_id={item_to_edit_id} 
-        setItemToEdit={setItemToEdit} 
-        setEditMode={setEditMode}/>
     </div>
   );
 }

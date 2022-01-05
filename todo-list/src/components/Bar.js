@@ -10,13 +10,15 @@ const Bar = ({id, setId, inputText, setInputText, todoItems, setTodoItems, editM
     const submitItemHandler = (e) => {
         // prevents the page from updating
         e.preventDefault();
-        // updates item id
-        setId(id + 1);
+        // prevents creation of items with no name
+        if(inputText === "") {return};
         // adds the new item to de list
         setTodoItems([
             ...todoItems,
             {text: inputText, completed: false, id: id}
         ]);
+        // updates item id
+        setId(id + 1);
         // resets the bar text
         setInputText('');
     };
@@ -42,8 +44,8 @@ const Bar = ({id, setId, inputText, setInputText, todoItems, setTodoItems, editM
     };
 
     return(
-    <form>
-      <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input" />
+    <form className="listForm">
+      <input placeholder="Nueva Tarea" value={inputText} onChange={inputTextHandler} type="text" className="todo-input" />
       <button onClick={editMode ? editItemHandler : submitItemHandler} className={editMode ? "edit-btn" : "todo-button"} type="submit">
         <i className={editMode ? "fas fa-edit" : "fas fa-plus-square"}></i>
       </button>

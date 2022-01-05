@@ -37,6 +37,14 @@ form button:hover {
   background: #ff6f47;
   color: white;
 }
+
+.listForm {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .todo-container {
   display: flex;
   justify-content: center;
@@ -65,6 +73,7 @@ form button:hover {
   flex: 1;
 }
 
+.expand-btn,
 .edit-btn,
 .trash-btn,
 .complete-btn {
@@ -75,8 +84,13 @@ form button:hover {
   cursor: pointer;
   font-size: 1rem;
 }
+
 .complete-btn {
   background: rgb(11, 212, 162);
+}
+
+.expand-btn {
+  background: rgb(16, 186, 238);
 }
 
 .edit-btn {
@@ -87,6 +101,7 @@ form button:hover {
   padding: 0rem 0.5rem;
 }
 
+.fa-expand,
 .fa-edit,
 .fa-trash,
 .fa-check {
@@ -131,7 +146,6 @@ select {
   cursor: pointer;
   width: 12rem;
 }
-/* Arrow */
 .select::after {
   content: "\25BC";
   position: absolute;
@@ -142,9 +156,3 @@ select {
   cursor: pointer;
   pointer-events: none;
 }
-/* Transition */
-/*
-.select:hover::after {
-  transform: scale(1.5);
-}
-*/
