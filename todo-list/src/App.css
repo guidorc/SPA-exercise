@@ -65,10 +65,11 @@ form button:hover {
   flex: 1;
 }
 
+.edit-btn,
 .trash-btn,
 .complete-btn {
   background: #ff6f47;
-  color: white;
+  color: black;
   border: none;
   padding: 1rem;
   cursor: pointer;
@@ -77,10 +78,16 @@ form button:hover {
 .complete-btn {
   background: rgb(11, 212, 162);
 }
+
+.edit-btn {
+  background: rgb(255, 255, 0);
+}
+
 .todo-item {
   padding: 0rem 0.5rem;
 }
 
+.fa-edit,
 .fa-trash,
 .fa-check {
   pointer-events: none;
