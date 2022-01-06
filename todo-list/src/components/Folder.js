@@ -16,7 +16,14 @@ const Folder = ({folder, folders, setFolders, id, setId}) => {
     };
 
     const deleteHandler = () => {
-        setFolders(folders.filter((elem) => elem.id !== folder.id));
+        // sends delete request to server
+        fetch("http://localhost:8080/folder/delete", {
+        method:"POST", 
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(folder)
+        }).then(() => {
+        console.log("carpeta eliminada");
+      })
     };
 
     return (
