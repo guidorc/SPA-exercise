@@ -1,5 +1,7 @@
 package net.proyectoguido.springboot.controller;
 
+import com.fasterxml.jackson.core.JsonToken;
+import net.proyectoguido.springboot.model.EditData;
 import net.proyectoguido.springboot.model.Task;
 import net.proyectoguido.springboot.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,12 @@ public class TaskController {
     @PostMapping("/toggle_complete")
     public void complete(@RequestBody Task task){
         taskService.completeTask(task);
+    }
+
+    @PostMapping("/edit")
+    public void edit(@RequestBody EditData data){
+        int id = data.getId();
+        String text = data.getText();
+        taskService.editTask(id, text);
     }
 }

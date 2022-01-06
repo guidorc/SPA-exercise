@@ -41,8 +41,13 @@ public class TaskServiceImplementation implements TaskService {
 
     @Override
     public void completeTask(Task task){
-        taskRepository.deleteById(task.getId());
-        task.setCompleted();
-        taskRepository.save(task);
+        int id = task.getId();
+        boolean status = task.toogleCompleted();
+        taskRepository.complete(id, status);
+    }
+
+    @Override
+    public void editTask(int id, String text){
+        taskRepository.edit(id, text);
     }
 }

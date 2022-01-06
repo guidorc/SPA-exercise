@@ -1,7 +1,7 @@
 import React from "react";
 
 // Defines the to-do list items behaviour
-const ToDo = ({item, todoItems, setTodoItems, item_to_edit_id, setItemToEdit, setEditMode}) => {
+const ToDo = ({item, item_to_edit_id, setItemToEdit, setEditMode}) => {
 
     // Handles the "delete button clicked" event
     const deleteHandler = () => {

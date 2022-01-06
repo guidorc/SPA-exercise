@@ -1,7 +1,7 @@
 import React from "react";
 
 // Defines the input text bar behaviour
-const Bar = ({folder, inputText, setInputText, todoItems, setTodoItems, editMode, setEditMode, item_to_edit_id, setItemToEdit}) => {
+const Bar = ({folder, inputText, setInputText, editMode, setEditMode, item_to_edit_id, setItemToEdit}) => {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -33,16 +33,22 @@ const Bar = ({folder, inputText, setInputText, todoItems, setTodoItems, editMode
     const editItemHandler = (e) => {
         // prevents the page from updating
         e.preventDefault();
-        // updates the task list
-        setTodoItems(todoItems.map(elem => {
-            if(elem.id === item_to_edit_id) {
-                return {
-                    // updates text
-                    ...elem, text: inputText
-                };
-            }
-            return elem;
-        }))
+        // prevents creation of items with no name
+        if(inputText === "") {return};
+        // creates message for request
+        var msg = {
+            id: item_to_edit_id,
+            text: inputText
+        }
+        console.log(msg);
+        // sends add request to server
+        fetch("http://localhost:8080/task/edit", {
+            method:"POST", 
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(msg)
+        }).then(() => {
+            console.log("Tarea editada");
+        })
         // resets the bar text
         setInputText('');
         // reset edit mode
