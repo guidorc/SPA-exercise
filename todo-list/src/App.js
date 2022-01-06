@@ -10,7 +10,6 @@ function App() {
 
   const [folders, setFolders] = useState([]);
   const [folderInputText, setFolderInputText] = useState("");
-  const [id, setId] = useState(1);
 
   return (
     <div className="App">
@@ -18,17 +17,11 @@ function App() {
         <h1>To-Do List</h1>
       </header>
       <FolderBar
-        id={id} 
-        setId={setId}
-        folders={folders}
-        setFolders={setFolders}
         inputText={folderInputText}
         setInputText={setFolderInputText}/>
       <FolderList 
         folders={folders}
         setFolders={setFolders}
-        id={id}
-        setId={setId}
       />
     </div>
   );

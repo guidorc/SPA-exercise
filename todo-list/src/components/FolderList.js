@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Folder from "./Folder";
 
-const FolderList = ({folders, setFolders, id, setId}) => {
+const FolderList = ({folders, setFolders}) => {
 
     useEffect(() => {
         fetch("http://localhost:8080/folder/getAll")
@@ -17,11 +17,7 @@ const FolderList = ({folders, setFolders, id, setId}) => {
                 {folders.map((elem) => (
                     <Folder
                         key={elem.id}
-                        folder={elem}
-                        folders={folders}
-                        setFolders={setFolders}
-                        id={id}
-                        setId={setId}/>
+                        folder={elem}/>
                 ))}
             </ul>
         </div>

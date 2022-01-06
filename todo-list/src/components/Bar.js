@@ -1,7 +1,7 @@
 import React from "react";
 
 // Defines the input text bar behaviour
-const Bar = ({id, setId, inputText, setInputText, todoItems, setTodoItems, editMode, setEditMode, item_to_edit_id, setItemToEdit}) => {
+const Bar = ({folder, inputText, setInputText, todoItems, setTodoItems, editMode, setEditMode, item_to_edit_id, setItemToEdit}) => {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -12,13 +12,20 @@ const Bar = ({id, setId, inputText, setInputText, todoItems, setTodoItems, editM
         e.preventDefault();
         // prevents creation of items with no name
         if(inputText === "") {return};
-        // adds the new item to de list
-        setTodoItems([
-            ...todoItems,
-            {text: inputText, completed: false, id: id}
-        ]);
-        // updates item id
-        setId(id + 1);
+        // prepare message as js object
+        var newTask = {
+            text: inputText,
+            completed: false,
+            parent_folder_id: folder.id
+        };
+        // sends add request to server
+        fetch("http://localhost:8080/folder/addTask", {
+            method:"POST", 
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newTask)
+        }).then(() => {
+            console.log("Nueva tarea agregada");
+        })
         // resets the bar text
         setInputText('');
     };

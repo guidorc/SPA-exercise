@@ -2,7 +2,7 @@ import React from "react";
 import FolderList from "./FolderList";
 
 // Defines the input text bar behaviour
-const FolderBar = ({id, setId, folders, setFolders, inputText, setInputText}) => {
+const FolderBar = ({inputText, setInputText}) => {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);

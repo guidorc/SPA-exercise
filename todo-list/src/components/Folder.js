@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import Bar from './Bar';
 import List from './List';
 
-const Folder = ({folder, folders, setFolders, id, setId}) => {
+const Folder = ({folder}) => {
 
     const [inputText, setInputText] = useState("");
     const [todoItems, setTodoItems] = useState([]);
@@ -43,8 +43,7 @@ const Folder = ({folder, folders, setFolders, id, setId}) => {
             {expanded &&
             <>
             <Bar 
-                id={id} 
-                setId={setId} 
+                folder={folder}
                 inputText={inputText}
                 setInputText={setInputText} 
                 todoItems={todoItems}
@@ -54,7 +53,8 @@ const Folder = ({folder, folders, setFolders, id, setId}) => {
                 item_to_edit_id={item_to_edit_id}
                 setItemToEdit={setItemToEdit}
             />
-            <List 
+            <List
+                folder={folder}
                 todoItems={todoItems} 
                 setTodoItems={setTodoItems} 
                 item_to_edit_id={item_to_edit_id} 

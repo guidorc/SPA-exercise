@@ -5,20 +5,23 @@ const ToDo = ({item, todoItems, setTodoItems, item_to_edit_id, setItemToEdit, se
 
     // Handles the "delete button clicked" event
     const deleteHandler = () => {
-        setTodoItems(todoItems.filter((elem) => elem.id !== item.id));
+        // sends delete request to server
+        fetch("http://localhost:8080/task/delete", {
+        method:"POST", 
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(item)
+        }).then(() => {
+        console.log("Tarea eliminada");
+      })
     };
 
     // Handles the "complete button clicked" event
     const completeHandler = () => {
-        setTodoItems(todoItems.map(elem => {
-            if(elem.id === item.id) {
-                return {
-                    // toggles between complete and incomplete
-                    ...elem, completed: !elem.completed
-                };
-            }
-            return elem;
-        }))
+        fetch("http://localhost:8080/task/toggle_complete", {
+            method:"POST", 
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(item)
+        })
     };
 
     // Handle Edit button pressed
