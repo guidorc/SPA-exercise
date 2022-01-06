@@ -3,8 +3,8 @@ import Folder from "./Folder";
 
 const FolderList = ({folders, setFolders, id, setId}) => {
     return(
-        <div className="todo-container">
-            <ul className="todo-list">
+        <div className="folder-container">
+            <ul className="folder-list">
                 {folders.map((elem) => (
                     <Folder
                         key={elem.id}

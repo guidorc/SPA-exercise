@@ -25,7 +25,7 @@ const FolderBar = ({id, setId, folders, setFolders, inputText, setInputText}) =>
     };
 
     return(
-    <form>
+    <form className="list-form">
       <input placeholder="Nueva Carpeta" value={inputText} onChange={inputTextHandler} type="text" className="todo-input" />
       <button onClick={createFolder} className="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>

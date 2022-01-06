@@ -45,12 +45,14 @@ form button:hover {
   align-items: center;
 }
 
+.folder-container,
 .todo-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.folder-list,
 .todo-list {
   min-width: 30%;
   list-style: none;

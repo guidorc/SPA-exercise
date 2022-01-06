@@ -20,7 +20,7 @@ const Folder = ({folder, folders, setFolders, id, setId}) => {
     };
 
     return (
-        <div className="App">
+        <div className="folder">
             <div className="todo">
             <li className={`todo-item`}>
                 {folder.text}
@@ -32,7 +32,7 @@ const Folder = ({folder, folders, setFolders, id, setId}) => {
                 <i className="fas fa-trash"></i>
             </button>
             </div>
-            <div className="App">
+            <div className="folder-list">
             {expanded &&
             <>
             <Bar 
