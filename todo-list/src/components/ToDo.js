@@ -17,6 +17,7 @@ const ToDo = ({item, item_to_edit_id, setItemToEdit, setEditMode}) => {
 
     // Handles the "complete button clicked" event
     const completeHandler = () => {
+        // sends edit request to server
         fetch("http://localhost:8080/task/toggle_complete", {
             method:"POST", 
             headers:{"Content-Type":"application/json"},

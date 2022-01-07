@@ -3,6 +3,7 @@ import Folder from "./Folder";
 
 const FolderList = ({folders, setFolders}) => {
 
+    // updates the list of folders vis request to server
     useEffect(() => {
         fetch("http://localhost:8080/folder/getAll")
         .then(res=>res.json())

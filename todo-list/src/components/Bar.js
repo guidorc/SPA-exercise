@@ -41,7 +41,7 @@ const Bar = ({folder, inputText, setInputText, editMode, setEditMode, item_to_ed
             text: inputText
         }
         console.log(msg);
-        // sends add request to server
+        // sends edit request to server
         fetch("http://localhost:8080/task/edit", {
             method:"POST", 
             headers:{"Content-Type":"application/json"},

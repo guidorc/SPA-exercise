@@ -5,6 +5,7 @@ import List from './List';
 
 const Folder = ({folder}) => {
 
+    // structures to handle this folder's task list
     const [inputText, setInputText] = useState("");
     const [todoItems, setTodoItems] = useState([]);
     const [editMode, setEditMode] = useState(false);
@@ -45,9 +46,7 @@ const Folder = ({folder}) => {
             <Bar 
                 folder={folder}
                 inputText={inputText}
-                setInputText={setInputText} 
-                todoItems={todoItems}
-                setTodoItems={setTodoItems}
+                setInputText={setInputText}
                 editMode={editMode}
                 setEditMode={setEditMode}
                 item_to_edit_id={item_to_edit_id}

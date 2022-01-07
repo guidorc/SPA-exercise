@@ -12,6 +12,6 @@ The tools required to run this App and their respective versions are:
 
 To run the App follow these steps:
 
-1. Open the springboot backend folder with IntellijIDEA (or other IDE) and run the build.
-2. Open XAMPP and start the Apache and MySQL modules.
+1. Open XAMPP and start the Apache and MySQL modules.
+2. Open the springboot backend folder with IntellijIDEA (or other IDE) and run the build.
 3. On the todo-list folder run the command: "npm start" ; this should open the App in the browser.
