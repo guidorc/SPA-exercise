@@ -1,5 +1,5 @@
 # ensolvers-web-excercise
-Simple SPA that let's you create a To-Do List with tasks and folders to group them.
+###Simple SPA that let's you create a To-Do List with tasks and folders to group them.
 
 The tools required to run this App and their respective versions are:
 - Java v11
@@ -11,6 +11,6 @@ The tools required to run this App and their respective versions are:
 
 To run the App follow these steps:
 
-1- Open the springboot backend folder with IntellijIDEA (or other IDE) and run the build.
-2- Open XAMPP and start the Apache and MySQL modules.
-3- On the todo-list folder run the command: "npm start" ; this should open the App in the browser.
+1. Open the springboot backend folder with IntellijIDEA (or other IDE) and run the build.
+2. Open XAMPP and start the Apache and MySQL modules.
+3. On the todo-list folder run the command: "npm start" ; this should open the App in the browser.
