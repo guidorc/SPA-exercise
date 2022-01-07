@@ -1,5 +1,6 @@
 # ensolvers-web-excercise
-###Simple SPA that let's you create a To-Do List with tasks and folders to group them.
+
+### Simple SPA that let's you create a To-Do List with tasks and folders to group them
 
 The tools required to run this App and their respective versions are:
 - Java v11
