@@ -13,5 +13,15 @@ The tools required to run this App and their respective versions are:
 To run the App follow these steps:
 
 1. Open XAMPP and start the Apache and MySQL modules.
-2. Open the springboot backend folder with IntellijIDEA (or other IDE) and run the build.
-3. On the todo-list folder run the command: "npm start" ; this should open the App in the browser.
+   - open browser and navigate to: "127.0.0.1"
+   - go to phpMyAdmin tab
+   - create a new database with name "ensolver-excercise"
+2. run the bash script "server.sh"
+3. run the bash script "frontend.sh" 
+
+Note: It may be needed to change the script permissions with "chmod u+r+x filename.sh"
+
+If the scripts don't work, try the following steps:
+
+1. Open the springboot backend folder with IntellijIDEA (or other IDE) and run the build.
+2. On the todo-list folder run the command: "npm start" ; this should open the App in the browser.
