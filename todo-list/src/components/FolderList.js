@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Folder from "./Folder";
 
-const FolderList = ({folders, setFolders}) => {
+const FolderList = ({folders, setFolders, folderUpdate, setFolderUpdate}) => {
 
     // updates the list of folders vis request to server
     useEffect(() => {
@@ -9,8 +9,9 @@ const FolderList = ({folders, setFolders}) => {
         .then(res=>res.json())
         .then(result=>{
             setFolders(result);
+            console.log("folders updated");
         })
-    });
+    }, [folderUpdate]);
 
     return(
         <div className="folder-container">
@@ -18,7 +19,10 @@ const FolderList = ({folders, setFolders}) => {
                 {folders.map((elem) => (
                     <Folder
                         key={elem.id}
-                        folder={elem}/>
+                        folder={elem}
+                        folderUpdate={folderUpdate}
+                        setFolderUpdate={setFolderUpdate}
+                    />
                 ))}
             </ul>
         </div>

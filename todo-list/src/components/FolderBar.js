@@ -1,8 +1,8 @@
 import React from "react";
-import FolderList from "./FolderList";
+//import FolderList from "./FolderList";
 
 // Defines the input text bar behaviour
-const FolderBar = ({inputText, setInputText}) => {
+const FolderBar = ({inputText, setInputText, folderUpdate, setFolderUpdate}) => {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -24,6 +24,7 @@ const FolderBar = ({inputText, setInputText}) => {
         body:JSON.stringify(folderName)
       }).then(() => {
         console.log("Nueva carpeta agregada");
+        setFolderUpdate(!folderUpdate);
       })
       // resets the bar text
       setInputText('');
@@ -40,21 +41,3 @@ const FolderBar = ({inputText, setInputText}) => {
 }
 
 export default FolderBar;
-
-/*
-    const createFolder = (e) => {
-        // prevents the page from updating
-        e.preventDefault();
-        // prevents creation of folders with no name
-        if(inputText === "") {return};
-        // creates the new folder
-        setFolders([
-            ...folders,
-            {text: inputText, items: [], id: id}
-        ]);
-        // updates item id
-        setId(id + 1);
-        // resets the bar text
-        setInputText('');
-    };
-    */

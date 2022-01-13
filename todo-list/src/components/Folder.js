@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import Bar from './Bar';
 import List from './List';
 
-const Folder = ({folder}) => {
+const Folder = ({folder, folderUpdate, setFolderUpdate}) => {
 
     // structures to handle this folder's task list
     const [inputText, setInputText] = useState("");
@@ -11,6 +11,7 @@ const Folder = ({folder}) => {
     const [editMode, setEditMode] = useState(false);
     const [item_to_edit_id, setItemToEdit] = useState(0);
     const [expanded, setExpanded] = useState(false);
+    const [itemUpdate, setItemUpdate] = useState(false);
 
     const expandHandler = () => {
         setExpanded(!expanded);
@@ -19,11 +20,12 @@ const Folder = ({folder}) => {
     const deleteHandler = () => {
         // sends delete request to server
         fetch("http://localhost:8080/folder/delete", {
-        method:"POST", 
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(folder)
+            method:"POST", 
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(folder)
         }).then(() => {
-        console.log("carpeta eliminada");
+            console.log("carpeta eliminada");
+            setFolderUpdate(!folderUpdate);
       })
     };
 
@@ -51,6 +53,8 @@ const Folder = ({folder}) => {
                 setEditMode={setEditMode}
                 item_to_edit_id={item_to_edit_id}
                 setItemToEdit={setItemToEdit}
+                itemUpdate={itemUpdate}
+                setItemUpdate={setItemUpdate}
             />
             <List
                 folder={folder}
@@ -58,7 +62,10 @@ const Folder = ({folder}) => {
                 setTodoItems={setTodoItems} 
                 item_to_edit_id={item_to_edit_id} 
                 setItemToEdit={setItemToEdit} 
-                setEditMode={setEditMode}/>
+                setEditMode={setEditMode}
+                itemUpdate={itemUpdate}
+                setItemUpdate={setItemUpdate}
+            />
             </>}
             </div>
         </div>

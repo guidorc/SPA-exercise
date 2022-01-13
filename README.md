@@ -15,7 +15,7 @@ To run the App follow these steps:
 1. Open XAMPP and start the Apache and MySQL modules.
    - open browser and navigate to: "127.0.0.1"
    - go to phpMyAdmin tab
-   - create a new database with name "ensolver-excercise"
+   - create a new database with name "ensolvers-excercise"
 2. run the bash script "server.sh"
 3. run the bash script "frontend.sh" 
 

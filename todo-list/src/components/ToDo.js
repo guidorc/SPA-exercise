@@ -1,17 +1,18 @@
 import React from "react";
 
 // Defines the to-do list items behaviour
-const ToDo = ({item, item_to_edit_id, setItemToEdit, setEditMode}) => {
+const ToDo = ({item, item_to_edit_id, setItemToEdit, setEditMode, itemUpdate, setItemUpdate}) => {
 
     // Handles the "delete button clicked" event
     const deleteHandler = () => {
         // sends delete request to server
         fetch("http://localhost:8080/task/delete", {
-        method:"POST", 
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(item)
+            method:"POST", 
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(item)
         }).then(() => {
-        console.log("Tarea eliminada");
+            console.log("Tarea eliminada");
+            setItemUpdate(!itemUpdate);
       })
     };
 
@@ -22,6 +23,9 @@ const ToDo = ({item, item_to_edit_id, setItemToEdit, setEditMode}) => {
             method:"POST", 
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(item)
+        }).then(() => {
+            console.log("Tarea completada");
+            setItemUpdate(!itemUpdate);
         })
     };
 

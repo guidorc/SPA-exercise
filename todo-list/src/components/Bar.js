@@ -1,7 +1,7 @@
 import React from "react";
 
 // Defines the input text bar behaviour
-const Bar = ({folder, inputText, setInputText, editMode, setEditMode, item_to_edit_id, setItemToEdit}) => {
+const Bar = ({folder, inputText, setInputText, editMode, setEditMode, item_to_edit_id, setItemToEdit, itemUpdate, setItemUpdate}) => {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -25,6 +25,7 @@ const Bar = ({folder, inputText, setInputText, editMode, setEditMode, item_to_ed
             body:JSON.stringify(newTask)
         }).then(() => {
             console.log("Nueva tarea agregada");
+            setItemUpdate(!itemUpdate);
         })
         // resets the bar text
         setInputText('');
@@ -48,6 +49,7 @@ const Bar = ({folder, inputText, setInputText, editMode, setEditMode, item_to_ed
             body:JSON.stringify(msg)
         }).then(() => {
             console.log("Tarea editada");
+            setItemUpdate(!itemUpdate);
         })
         // resets the bar text
         setInputText('');
